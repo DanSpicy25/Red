@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dead Redemption 2 - Examen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rdr2-dark-red: #5C1D16;
+            --rdr2-medium-red: #8B2C21;
+            --rdr2-light-red: #D1453E;
+            --rdr2-gold: #B68541;
+            --rdr2-dark-gold: #7B521E;
+            --rdr2-cream: #F5E8C7;
+            --rdr2-brown: #3E2723;
+        }
+
+        body {
+            background-color: var(--rdr2-dark-red);
+            color: var(--rdr2-cream);
+            font-family: 'Roboto Slab', serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1549487531-15b630132b85?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: -1;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.15; }
+        }
+
+        header {
+            background-color: rgba(92, 29, 22, 0.9);
+            color: var(--rdr2-gold);
+            padding: 2.5rem 0;
+            border-bottom: 3px solid var(--rdr2-dark-gold);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            font-family: 'Cinzel', serif;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            animation: slideInFromTop 1s ease-out forwards;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0;
+            animation: slideInFromTop 1.2s ease-out forwards;
+        }
+
+        @keyframes slideInFromTop {
+            from { transform: translateY(-70px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            background-color: rgba(92, 29, 22, 0.75);
+            border: 3px solid var(--rdr2-gold);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--rdr2-gold);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            animation: fadeInScale 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0 auto 2rem auto;
+            max-width: 700px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .image-box {
+            background-color: rgba(62, 39, 35, 0.8);
+            border: 2px solid var(--rdr2-gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .image-box:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid var(--rdr2-gold);
+            filter: grayscale(20%) brightness(90%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .image-box:hover img {
+            filter: grayscale(0%) brightness(100%);
+        }
+
+        .image-box h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--rdr2-light-red);
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .image-box p {
+            color: var(--rdr2-cream);
+            padding: 0 1rem 1rem 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .image-box:nth-child(1) { animation-delay: 0.2s; }
+        .image-box:nth-child(2) { animation-delay: 0.4s; }
+        .image-box:nth-child(3) { animation-delay: 0.6s; }
+        .image-box:nth-child(4) { animation-delay: 0.8s; }
+
+        .weapons-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 1rem;
+        }
+
+        .weapon-card {
+            background-color: rgba(62, 39, 35, 0.8);
+            border: 2px solid var(--rdr2-dark-gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        .weapon-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            background-color: rgba(92, 29, 22, 0.9);
+        }
+
+        .weapon-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain; /* Cambiado de 'cover' a 'contain' para que las armas se vean completas */
+            background-color: rgba(0, 0, 0, 0.3); /* Fondo oscuro para las armas */
+            display: block;
+            border-bottom: 2px solid var(--rdr2-gold);
+            filter: sepia(30%) brightness(95%);
+            transition: filter 0.4s ease-in-out;
+        }
+
+        .weapon-card:hover img {
+            filter: sepia(0%) brightness(100%);
+        }
+
+        .weapon-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--rdr2-light-red);
+            font-size: 1.8rem;
+            margin: 1.2rem 0 0.8rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .weapon-card p {
+            color: var(--rdr2-cream);
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .weapon-card:nth-child(1) { animation-delay: 0.3s; }
+        .weapon-card:nth-child(2) { animation-delay: 0.6s; }
+        .weapon-card:nth-child(3) { animation-delay: 0.9s; }
+        .weapon-card:nth-child(4) { animation-delay: 1.2s; }
+        .weapon-card:nth-child(5) { animation-delay: 1.5s; }
+
+        footer {
+            background-color: var(--rdr2-dark-red);
+            color: var(--rdr2-cream);
+            padding: 1.5rem 0;
+            border-top: 3px solid var(--rdr2-dark-gold);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 3rem;
+            font-family: 'Roboto Slab', serif;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RED DEAD REDEMPTION II</h1>
+        <p>Honor, Lealtad, Supervivencia</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>El Último Forajido del Oeste</h2>
+            <p>
+                Este proyecto es un viaje al corazón del Salvaje Oeste, inspirado en la épica narrativa y la inmersión 
+                visual de Red Dead Redemption 2. Hemos capturado la esencia de sus tonos rojizos, su atmósfera ruda 
+                y el espíritu de sus personajes y paisajes. ¡Mucha suerte en tu examen y que el honor te acompañe!
+            </p>
+        </section>
+
+        <section class="image-gallery-section">
+            <h2>Momentos del Viejo Oeste</h2>
+            <div class="image-gallery">
+                <div class="image-box">
+                    <img src="razas-caballos-red-dead-redemption-2_1.webp" alt="Arthur Morgan a caballo">
+                    <h3>Atardecer en las Montañas</h3>
+                    <p>
+                        Un jinete solitario en el vasto y hermoso paisaje, evocando la libertad y el peligro de la frontera.
+                    </p>
+                </div>
+                <div class="image-box">
+                    <img src="b028049369c50eb0da6436e7f87a0b7e4998d994.png" alt="Arthur Morgan y la banda">
+                    <h3>La Banda de Dutch van der Linde</h3>
+                    <p>
+                        Un grupo de forajidos unidos por la lealtad, enfrentándose a un mundo que cambia rápidamente.
+                    </p>
+                </div>
+                <div class="image-box">
+                    <img src="rdr2_0.webp" alt="Duelo en el atardecer">
+                    <h3>Un Duelo al Amanecer</h3>
+                    <p>
+                        La tensión de un enfrentamiento, donde la rapidez y la puntería lo son todo.
+                    </p>
+                </div>
+                <div class="image-box">
+                    <img src="out-of-all-the-camps-in-rdr2s-story-which-one-is-your-v0-tfor1cgedand1.jpg" alt="Campamento de la banda">
+                    <h3>Vida en el Campamento</h3>
+                    <p>
+                        El corazón de la banda, donde se comparten historias y se planean los próximos golpes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="weapons-section">
+            <h2>Armas Legendarias del Oeste</h2>
+            <div class="weapons-gallery">
+                <div class="weapon-card">
+                    <img src="181101_RDR2_Pistols_Cattleman_Revolver.webp" alt="Revólver Cattleman">
+                    <h3>Revólver Cattleman</h3>
+                    <p>
+                        Un arma icónica del Salvaje Oeste, fiable y letal en manos expertas. El compañero perfecto para cualquier forajido.
+                    </p>
+                </div>
+                <div class="weapon-card">
+                    <img src="181101_RDR2_Rifles_Springfield_Rifle.webp" alt="Rifle Springfield">
+                    <h3>Rifle Springfield</h3>
+                    <p>
+                        Preciso y potente, ideal para cazar animales grandes o abatir enemigos a larga distancia con un solo disparo certero.
+                    </p>
+                </div>
+                <div class="weapon-card">
+                    <img src="my-pump-action-v0-ioo0eaip9nie1.webp" alt="Escopeta de Corredera">
+                    <h3>Escopeta de Corredera</h3>
+                    <p>
+                        Devastadora a corta distancia, dispersa plomos con gran impacto. Perfecta para emboscadas y situaciones cerradas.
+                    </p>
+                </div>
+                <div class="weapon-card">
+                    <img src="0b89r7uv86o31.jpg" alt="Carabina Lancaster">
+                    <h3>Carabina Lancaster</h3>
+                    <p>
+                        Un favorito por su versatilidad y cadencia de fuego. Excelente para tiroteos a media distancia, un clásico.
+                    </p>
+                </div>
+                <div class="weapon-card">
+                    <img src="1208.png" alt="Revólver Schofield">
+                    <h3>Revólver Schofield</h3>
+                    <p>
+                        Conocido por su mayor daño y precisión que otros revólveres, es una elección premium para quienes buscan fiabilidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-box">
+            <p>
+                Aquí podrías agregar más contenido específico para tu examen. Utiliza la estructura de secciones 
+                y casillas para organizar la información de manera visualmente atractiva.
+            </p>
+            <p>
+                ¡No olvides personalizar los textos para que se ajusten a los requisitos de tu profesor!
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Red Dead Redemption II | Examen de Desarrollo Web</p>
+    </footer>
+</body>
+</html>
